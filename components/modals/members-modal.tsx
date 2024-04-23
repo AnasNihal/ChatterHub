@@ -16,7 +16,7 @@ import { useModal } from "@/hooks/use-modal-store";
 import { ServerWithMembersWithProfiles } from "@/types";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { UserAvatar } from "@/components/user-avatar";
-import { Check, Gavel, Loader2, Shield, ShieldAlert, ShieldCheck, ShieldQuestion } from "lucide-react";
+import { Check, Gavel, Loader2, Shield,MoreVertical, ShieldAlert, ShieldCheck, ShieldQuestion } from "lucide-react";
 import { useState } from "react";
 
 import {
@@ -47,6 +47,27 @@ export const MembersModal = () => {
 
     const isModalOpen = isOpen && type === "members";
     const { server } = data as { server: ServerWithMembersWithProfiles };
+
+
+    const onkick = async (memberId: string) => {
+        try {
+        setLoadingId(memberId);
+        const url = qs.stringifyUrl ({
+        url: `/api/members/${memberId}`,
+        query: {
+        serverId: server?.id,
+        },
+        });
+        const response = await axios.delete(url);
+        router.refresh();
+        onOpen("members", {server: response.data});
+        } catch (error) {
+        console.log(error);
+        } finally {
+        setLoadingId("");
+        
+        }
+        }
 
     const onRoleChange = async (memberId :string, role: MemberRole)=>{
         try {
@@ -99,6 +120,8 @@ export const MembersModal = () => {
                         <div className="ml-auto">
                             <DropdownMenu>
                                 <DropdownMenuTrigger>
+                                    <MoreVertical className="h-4    w-4   text-zinc-500"/>
+                                </DropdownMenuTrigger>
                                     <DropdownMenuContent side="left">
                                         <DropdownMenuSub>
                                             <DropdownMenuSubTrigger className="flex items-center">
@@ -127,12 +150,11 @@ export const MembersModal = () => {
                                             </DropdownMenuPortal>
                                         </DropdownMenuSub>
                                         <DropdownMenuSeparator/>
-                                        <DropdownMenuItem>
+                                        <DropdownMenuItem onClick={()=> onkick(member.id)}>
                                             <Gavel className="h-4 w-4 mr-2"/>
                                             Kick
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>
-                                </DropdownMenuTrigger>
                             </DropdownMenu>
                         </div>
                     )}

@@ -1,4 +1,4 @@
-import NavigationSidebar from "@/components/Navigation/navigation-sidebar";
+import NavigationSidebar from "@/components/navigation/navigation-sidebar";
 
 const MainLayout = async({
     children
