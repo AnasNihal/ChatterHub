@@ -11,6 +11,6 @@ export type NextApiResponseServerIo = NextApiResponse & {
     socket: Socket &{
         server: NetServer &{
             io:SocketIOServer;
-        }
-    }
-}
+        };
+    };
+};

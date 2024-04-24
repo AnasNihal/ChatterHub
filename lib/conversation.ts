@@ -51,11 +51,11 @@ try{
                     profile:true,
                 }
             },
-            memberTwo:{
-                include:{
-                    profile:true,
-                }
+          memberTwo:{
+            include:{
+                profile:true,
             }
+          }
         }
     })
 }

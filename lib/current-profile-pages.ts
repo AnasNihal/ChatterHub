@@ -13,6 +13,6 @@ export const currentProfilePages = async (req:NextApiRequest) =>{
         where:{
             userId
         }
-    })
+    });
     return profile;
 }

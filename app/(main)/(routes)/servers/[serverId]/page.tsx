@@ -43,7 +43,7 @@ const initialChannel = server?.channels[0];
 if(initialChannel?.name !== "general"){
     return null;
 }
-
+    
     return redirect(`/servers/${params.serverId}/channels/${initialChannel?.id}`)
 }
  
