@@ -61,7 +61,7 @@ const otherMember = memberOne.profileId === profile.id ? memberTwo: memberOne;
             serverId={params.serverId}
              type="conversation"
             />
-            {!searchParams.video && (
+            {searchParams.video && (
                 <MediaRoom
                 chatId={conversation.id}
                 video={true}
