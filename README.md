@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Discord Clone
 
-## Getting Started
 
-First, run the development server:
+## 🚀 About the Project
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This is a **chatterhub** that replicates the core functionalities of Discord, allowing users to communicate via text and voice channels. The project was built to enhance my skills in web development and real-time communication.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 🔹 **User Authentication** (Sign Up, Login, Logout)
+- 🔹 **Real-time Messaging**
+- 🔹 **Voice Channels**
+- 🔹 **Server & Channel Creation**
+- 🔹 **Friend System** (Add/Remove Friends)
+- 🔹 **Responsive UI**
+- 🔹 **Dark Mode** Support *(Optional)*
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🛠️ Tech Stack
 
-## Learn More
+### Frontend:
+- **React.js** (for UI components and interactivity)
+- **Redux** (for state management)
+- **Tailwind CSS / CSS Modules** (for styling)
 
-To learn more about Next.js, take a look at the following resources:
+### Backend:
+- **Node.js** (server-side logic)
+- **Express.js** (handling API requests)
+- **Socket.io** (real-time communication)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Database:
+- **MongoDB** (NoSQL database for storing users, messages, and server data)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🚀 Getting Started
 
-## Deploy on Vercel
+### Prerequisites
+Ensure you have the following installed:
+- **Node.js** (LTS version recommended)
+- **MongoDB** (local or cloud instance)
+- **Git** (optional but recommended)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Installation Steps
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. **Clone the repository**
+   ```sh
+   git clone https://github.com/AnasNihal/ChatterHub.git
+   cd ChatterHub
+   ```
+
+2. **Install dependencies**
+   - Frontend:
+     ```sh
+     cd client
+     npm install
+     ```
+   - Backend:
+     ```sh
+     cd server
+     npm install
+     ```
+
+3. **Set up environment variables**
+   - Create a `.env` file in the `server` directory and add your MongoDB URI, JWT Secret, and other required configurations.
+
+4. **Run the application**
+   - Start the backend server:
+     ```sh
+     cd server
+     npm start
+     ```
+   - Start the frontend:
+     ```sh
+     cd client
+     npm start
+     ```
+
+5. **Open the application**
+   - Visit `http://localhost:3000` in your browser.
+
+## 📸 Screenshots
+
+
+## 🛠 Future Enhancements
+- ✅ Video Calling Feature
+- ✅ More Customization Options for Servers
+- ✅ Profile & Status Updates
+
+## 🤝 Contributing
+Contributions are welcome! Feel free to fork the repository and submit a pull request.
+
+## 📜 License
+This project is licensed under the MIT License.
+
+## 📞 Contact
+- **GitHub**: [AnasNihal](https://github.com/AnasNihal)
+- **Email**: anasnihal03@gmail.com
+
