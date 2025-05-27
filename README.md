@@ -1,4 +1,4 @@
-# Discord Clone
+# Eco-connect
 
 
 ## 🚀 About the Project
