@@ -9,7 +9,7 @@ export async function GET(
     req:Request
 ){
     try {
-        const profile = await currentProfile();
+        const profile =await currentProfile();
         const { searchParams } = new URL(req.url);
 
         const cursor = searchParams.get("cursor");
@@ -19,11 +19,15 @@ export async function GET(
             return new NextResponse("Unauthorized", { status:401 });
         }
 
+        if(!channelId) {
+            return new NextResponse("Channel ID Missing", { status:400 });
+        }
+
         let messages : Message[] = [];
 
         if(cursor){
             messages = await db.message.findMany({
-                take: MESSAGES_BATCH,
+                take:MESSAGES_BATCH,
                 skip:1,
                 cursor:{
                     id:cursor,
@@ -38,17 +42,15 @@ export async function GET(
                         }
                     }
                 },
-
                 orderBy:{
-                    createdAt: "desc",
+                    createdAt:"desc"
                 }
-
-            })
-        }else {
+            });
+        } else{
             messages = await db.message.findMany({
                 take:MESSAGES_BATCH,
                 where:{
-                    channelId,  
+                    channelId,
                 },
                 include:{
                     member:{
@@ -60,11 +62,11 @@ export async function GET(
                 orderBy:{
                     createdAt:"desc"
                 }
-            })
+            });
         }
-        let nextCursor = null;
 
-        if (messages.length === MESSAGES_BATCH) {
+        let nextCursor = null;
+        if(messages.length === MESSAGES_BATCH){
             nextCursor = messages[MESSAGES_BATCH - 1].id;
         }
 
@@ -72,9 +74,8 @@ export async function GET(
             items:messages,
             nextCursor
         });
-
     } catch (error) {
         console.log("[MESSAGES_GET]", error);
-        return new NextResponse("Internal Error", {status:500});
+        return new NextResponse("Internal Error", { status:500 })
     }
 }
