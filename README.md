@@ -3,7 +3,7 @@
 
 ## 🚀 About the Project
 
-This is a **chatterhub** that replicates the core functionalities of Discord, allowing users to communicate via text and voice channels. The project was built to enhance my skills in web development and real-time communication.
+This is a **Eco-connect** that replicates the core functionalities of Discord, allowing users to communicate via text and voice channels. The project was built to enhance my skills in web development and real-time communication.
 
 ## ✨ Features
 
